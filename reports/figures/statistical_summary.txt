@@ -1,0 +1,17 @@
+
+================================================================================
+CONFTEST STATISTICAL RIGOR & HYPOTHESIS TESTING REPORT
+================================================================================
+1. Wilcoxon Signed-Rank Test (Calibrated vs Uncalibrated Probabilities):
+   - W-Statistic : 626930.0000
+   - p-value     : 0.000000e+00  (Statistically Significant at alpha = 0.01)
+
+2. Cliff's Delta Non-Parametric Effect Size:
+   - Delta (d)   : 0.0698
+   - Magnitude   : Negligible Effect Size
+
+3. Calibration Quality Improvement:
+   - Raw ECE        : 0.0100
+   - Calibrated ECE : 0.0093
+   - Relative Gain  : 7.91% Error Reduction
+================================================================================

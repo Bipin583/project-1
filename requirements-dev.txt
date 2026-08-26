@@ -1,0 +1,16 @@
+-r requirements.txt
+
+# Testing & Quality
+pytest>=8.0.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.23.5
+pytest-mock>=3.12.0
+
+# Formatting & Linting
+ruff>=0.3.0
+black>=24.2.0
+mypy>=1.8.0
+
+# Explainability & Advanced Calibration (Optional/Research)
+shap>=0.44.1
+netcal>=1.3.5

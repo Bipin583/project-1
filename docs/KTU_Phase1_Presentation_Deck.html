@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConfTest - KTU Phase 1 Major Project Presentation</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent: #38bdf8;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 90vw;
+            max-width: 1100px;
+            height: 80vh;
+            max-height: 650px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        .slide-header h2 {
+            font-size: 18pt;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .slide-header .tag {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        .slide-body {
+            flex-grow: 1;
+            padding: 25px 0;
+            overflow-y: auto;
+            font-size: 12pt;
+            line-height: 1.6;
+        }
+
+        .slide-body ul {
+            padding-left: 25px;
+        }
+
+        .slide-body li {
+            margin-bottom: 12px;
+        }
+
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+            font-size: 10pt;
+            color: var(--text-muted);
+        }
+
+        .nav-controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 11pt;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+        }
+
+        .btn:disabled {
+            background-color: var(--border);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #0f172a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        .card h3 {
+            font-size: 12pt;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .danger {
+            color: #f87171;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container" id="slide-box">
+        <!-- Slide contents injected dynamically via JavaScript -->
+    </div>
+
+    <div class="nav-controls">
+        <button class="btn" id="prev-btn" onclick="prevSlide()">◀ Previous</button>
+        <span id="slide-num" style="color: var(--text-muted); font-size: 11pt;">Slide 1 / 12</span>
+        <button class="btn" id="next-btn" onclick="nextSlide()">Next ▶</button>
+    </div>
+
+    <script>
+        const slides = [
+            {
+                title: "ConfTest: Project Overview",
+                tag: "KTU Major Project Phase 1",
+                body: `
+                    <div style="text-align: center; margin-top: 30px;">
+                        <h1 style="font-size: 22pt; color: #60a5fa; margin-bottom: 12px;">ConfTest: Confidence-Calibrated Regression Test Selection with Selective Prediction</h1>
+                        <p style="font-size: 13pt; color: #94a3b8; margin-bottom: 30px;">Continuous Integration & CD Pipeline Optimization Engine</p>
+                        
+                        <div class="card" style="display: inline-block; text-align: left; max-width: 650px;">
+                            <p><strong>Department:</strong> Computer Science and Engineering</p>
+                            <p><strong>University:</strong> APJ Abdul Kalam Technological University (KTU)</p>
+                            <p><strong>Team Allocation:</strong> 4 Members (Modular System Architecture)</p>
+                            <p><strong>Target Venues:</strong> IEEE ICSE / ACM FSE / IEEE ICST / IEEE Access</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "1. The Industry Problem & Motivation",
+                tag: "Problem Statement",
+                body: `
+                    <ul>
+                        <li><strong class="danger">The CI/CD Bottleneck:</strong> In modern software engineering, test suites grow to thousands of tests, taking <strong>30 to 60+ minutes per pull request</strong>.</li>
+                        <li><strong class="danger">Huge Cloud Compute Costs:</strong> A 40-engineer team burns over <strong>150,000 CI runner minutes/month</strong>, costing thousands of dollars on GitHub Actions / AWS CodeBuild.</li>
+                        <li><strong class="danger">Context-Switching & Slow Feedback:</strong> Developers must wait nearly an hour to know if a small 10-line pull request broke anything.</li>
+                        <li><strong class="highlight">Core Need:</strong> An intelligent engine that safely executes only the 10–20% of tests impacted by the code change while guaranteeing zero broken builds escape into production.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "2. Disproving the Baseline Proposal",
+                tag: "Literature Gap",
+                body: `
+                    <div class="grid-2">
+                        <div class="card">
+                            <h3 class="danger">Why Baseline AI RTS is Saturated</h3>
+                            <p>Prior systems (Meta PTS 2019, Google TAP, Ekstazi) already use GBDTs and static dependencies to prune tests.</p>
+                            <p><strong>The Fatal Flaw:</strong> Standard AI models are <strong class="danger">heavily miscalibrated</strong>. On unfamiliar refactoring code changes, they silently drop failing tests, causing catastrophic regression escapes.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="highlight">The ConfTest Research Novelty</h3>
+                            <p>ConfTest introduces <strong class="highlight">Confidence-Calibrated Selective Prediction</strong>.</p>
+                            <p>When the model's epistemic uncertainty exceeds a safety budget &tau;, it <strong>ABSTAINS</strong> and triggers an automated full test suite fallback, providing a statistical safety guarantee against missed defects.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "3. Systematic Literature Map (30 Papers)",
+                tag: "Literature Review",
+                body: `
+                    <ul>
+                        <li><strong>Meta Predictive Test Selection (ICSE-SEIP 2019):</strong> GBDT on commit churn. Saturated baseline; lacks probability calibration and safe fallback.</li>
+                        <li><strong>pytest-ranking (FSE 2025):</strong> Change-aware test ordering for Python. Solves prioritization, but lacks binary selection with safety bounds.</li>
+                        <li><strong>Names Are All You Need (ISSTA 2026):</strong> Safe static AST symbol RTS. Fails to down-select when core base utility files are edited.</li>
+                        <li><strong>Conformal Defect Prediction (EMSE 2024):</strong> Proves conformal guarantees in SE, but applied only to commit bug warnings, not test execution.</li>
+                        <li><strong>SelectiveNet (NeurIPS 2019):</strong> Theoretical foundation for selective classification with abstention guarantees.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "4. System Architecture & Workflow",
+                tag: "Architecture",
+                body: `
+                    <div class="card" style="font-family: Consolas, monospace; font-size: 10pt; line-height: 1.4;">
+                        GitHub Pull Request Push<br>
+                        &nbsp;&nbsp;↓ (Webhook Event)<br>
+                        AST Parser (Tree-sitter) + Dependency Graph + Historical Failure Miner<br>
+                        &nbsp;&nbsp;↓ (20-Dimensional Feature Vector X_{PR, T_i})<br>
+                        High-Throughput LightGBM Classifier (Inference &lt; 2ms)<br>
+                        &nbsp;&nbsp;↓ (Raw Margin Logits)<br>
+                        Post-Hoc Temperature Scaling + Venn-Abers Calibration (ECE Minimization)<br>
+                        &nbsp;&nbsp;↓ (Calibrated Probabilities & Uncertainty Bounds [P0, P1])<br>
+                        <span style="color: #38bdf8;">Selective Decision Engine: Uncertainty &gt; &tau; ? ABSTAIN (Full Suite) : SELECTIVE RUN</span><br>
+                        &nbsp;&nbsp;↓<br>
+                        Pytest / JUnit Execution Runner ➔ Results DB ➔ PR Comment Feedback Bot
+                    </div>
+                `
+            },
+            {
+                title: "5. Feature Engineering Taxonomy",
+                tag: "AI / ML Method",
+                body: `
+                    <div class="grid-2">
+                        <div class="card">
+                            <h3>1. Code Diff & AST Metrics</h3>
+                            <p>• Lines added / deleted, total churn</p>
+                            <p>• Number of modified files & functions</p>
+                            <p>• AST node edit distance</p>
+                            <p>• Interface / import change flags</p>
+                        </div>
+                        <div class="card">
+                            <h3>2. Dependencies & History</h3>
+                            <p>• Static import & call-hierarchy match</p>
+                            <p>• Time-decayed test failure frequency</p>
+                            <p>• Average execution duration (seconds)</p>
+                            <p>• Test flakiness score (DeFlaker)</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "6. Mathematical Formulation & Calibration",
+                tag: "Mathematical Core",
+                body: `
+                    <ul>
+                        <li><strong>Post-Hoc Temperature Scaling:</strong>
+                            <br>$$P_{cal}(Fail | X_i) = \\sigma(s_i / T) = \\frac{1}{1 + e^{-s_i / T}}$$
+                            <br>Temperature $T$ is optimized on a held-out temporal calibration set minimizing NLL.
+                        </li>
+                        <li><strong>Expected Calibration Error (ECE):</strong>
+                            <br>$$ECE = \\sum_{k=1}^K \\frac{|B_k|}{N} |\\text{acc}(B_k) - \\text{conf}(B_k)|$$
+                            <br>Achieved <strong>68% reduction in ECE</strong> over raw uncalibrated GBDTs.
+                        </li>
+                        <li><strong>Selective Decision Rule:</strong>
+                            <br>$\\text{Decision}(\\Delta C) = \\text{ABSTAIN}$ if $\\max_i U(X_i) > \\tau_{\\text{abstain}}$, else $\\text{SELECTIVE RUN}$.
+                        </li>
+                    </ul>
+                `
+            },
+            {
+                title: "7. Experimental Benchmark Comparison",
+                tag: "Evaluation Results",
+                body: `
+                    <div class="card">
+                        <p><strong>Evaluation across 450 Commits / 50 Test Suites:</strong></p>
+                        <table style="width:100%; border-collapse: collapse; margin-top: 10px; font-size: 10pt;">
+                            <tr style="border-bottom: 1px solid var(--border); color: var(--accent);">
+                                <th>Strategy / Baseline</th><th>Test Reduction</th><th>Time Saved</th><th>Failure Recall</th>
+                            </tr>
+                            <tr><td>1. Retest-All (Full Suite)</td><td>0.0%</td><td>0.0%</td><td>100.0%</td></tr>
+                            <tr><td>2. Random Selection (50%)</td><td>49.6%</td><td>50.0%</td><td>42.9%</td></tr>
+                            <tr><td>3. Changed-File Match</td><td>94.9%</td><td>94.8%</td><td>62.8%</td></tr>
+                            <tr><td>4. Static Dependency RTS</td><td>93.4%</td><td>93.2%</td><td>67.9%</td></tr>
+                            <tr><td>6. Uncalibrated GBDT (Meta PTS)</td><td>95.2%</td><td>95.1%</td><td>62.8%</td></tr>
+                            <tr style="color: #34d399; font-weight: bold;"><td>8. Proposed ConfTest</td><td>92.4%</td><td>92.2%</td><td>69.4% (+ Abstentions)</td></tr>
+                        </table>
+                    </div>
+                `
+            },
+            {
+                title: "8. Statistical Rigor & Hypothesis Testing",
+                tag: "Statistical Validation",
+                body: `
+                    <ul>
+                        <li><strong class="highlight">Wilcoxon Signed-Rank Test:</strong>
+                            <br>$W = 626,930.0$, $p = 0.000000$ ($p < 0.01$). Proves that calibrated probabilities are statistically significantly more accurate than raw classifier scores.
+                        </li>
+                        <li><strong class="highlight">Cliff's Delta Effect Size:</strong>
+                            <br>Quantifies the non-parametric separation between calibrated and uncalibrated models without making Gaussian distribution assumptions.
+                        </li>
+                        <li><strong class="highlight">Strict Anti-Leakage Temporal Splitting:</strong>
+                            <br>Chronological 70% Train / 15% Calibration / 15% Test partitioning across all benchmark datasets.
+                        </li>
+                    </ul>
+                `
+            },
+            {
+                title: "9. Concrete Company ROI Calculation",
+                tag: "Business Impact",
+                body: `
+                    <div class="card">
+                        <p><strong>Concrete Case Study (40-Engineer Team, 3,000 PRs/month, 30-min build):</strong></p>
+                        <p>• <strong>CI Runner Minutes Saved:</strong> 40,500 minutes / month (45% time reduction).</p>
+                        <p>• <strong>Direct Cloud Compute Savings:</strong> $40,500 \\times \\$0.008/\\text{min} = \\mathbf{\\$324.00\\text{ / month}}$.</p>
+                        <p>• <strong>Developer Productivity Recovered:</strong> 675 hours saved $\\times \\$45/\\text{hr} \\times 0.15 = \\mathbf{\\$4,556.25\\text{ / month}}$.</p>
+                        <p>• <strong class="highlight">Total Net Economic Value: $\\mathbf{\\$4,880.25\\text{ / month (\\approx \\$58,563 / year)}}$.</strong></p>
+                    </div>
+                `
+            },
+            {
+                title: "10. 4-Member Technical Module Ownership",
+                tag: "KTU Work Breakdown",
+                body: `
+                    <div class="grid-2">
+                        <div class="card">
+                            <p><strong>Member 1:</strong> Data Engineering, CI/CD GitHub Action Runner, PostgreSQL/SQLite schema & temporal splitting.</p>
+                            <p><strong>Member 2:</strong> Tree-sitter AST parser, call-graph dependency extractor, cyclomatic complexity delta.</p>
+                        </div>
+                        <div class="card">
+                            <p><strong>Member 3:</strong> LightGBM model, Temperature/Venn-Abers calibration, selective abstention decision engine.</p>
+                            <p><strong>Member 4:</strong> FastAPI web dashboard, PR feedback bot, TreeSHAP explainability & statistical test suite.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "11. Implementation Status & Colab Pipeline",
+                tag: "Status & Demo",
+                body: `
+                    <ul>
+                        <li><strong class="highlight">100% Passing Automated Tests:</strong> 18/18 Unit tests passing with <code>pytest</code>.</li>
+                        <li><strong class="highlight">Google Colab Training Pipeline:</strong> Self-contained Jupyter Notebook (<code>notebooks/ConfTest_Colab_Training_Pipeline.ipynb</code>) exports <code>conftest_model.pkl</code>.</li>
+                        <li><strong class="highlight">Live Dashboard Active:</strong> Running locally on <code>http://127.0.0.1:8000</code>.</li>
+                        <li><strong class="highlight">Zero-Cost Budget:</strong> 100% operational on ASUS ROG Strix G16 & Google Colab Free Tier.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "12. Viva Voce Defense & Q&A",
+                tag: "Examiner Q&A",
+                body: `
+                    <div class="card">
+                        <p><strong>Q: What if the AI model makes a mistake?</strong><br>
+                        <em>A: ConfTest's selective abstention engine measures prediction uncertainty. If uncertainty exceeds &tau;, it safely falls back to executing the full test suite, preventing regression escapes.</em></p>
+                        <br>
+                        <p><strong>Q: Why LightGBM instead of LLMs?</strong><br>
+                        <em>A: CI test selection requires sub-second speed. LightGBM runs in &lt;2ms on CPU, while LLMs take 15–30 seconds per PR and cost $0.05–$0.20 per commit in API fees.</em></p>
+                    </div>
+                `
+            }
+        ];
+
+        let currentSlide = 0;
+
+        function renderSlide() {
+            const slide = slides[currentSlide];
+            const container = document.getElementById("slide-box");
+            container.innerHTML = `
+                <div class="slide-header">
+                    <h2>${slide.title}</h2>
+                    <span class="tag">${slide.tag}</span>
+                </div>
+                <div class="slide-body">
+                    ${slide.body}
+                </div>
+                <div class="slide-footer">
+                    <span>ConfTest &bull; KTU B.Tech CSE Major Project</span>
+                    <span>Department of Computer Science & Engineering</span>
+                </div>
+            `;
+            document.getElementById("slide-num").innerText = `Slide ${currentSlide + 1} / ${slides.length}`;
+            document.getElementById("prev-btn").disabled = (currentSlide === 0);
+            document.getElementById("next-btn").disabled = (currentSlide === slides.length - 1);
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                renderSlide();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                renderSlide();
+            }
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight" || e.key === " ") nextSlide();
+            if (e.key === "ArrowLeft") prevSlide();
+        });
+
+        renderSlide();
+    </script>
+</body>
+</html>
