@@ -1,0 +1,268 @@
+{
+  "model_file": "models\\ensembles\\5_seed_lgbm\\member_1_seed_42.joblib",
+  "dataset_file": "data\\splits\\test.csv",
+  "global_shap_importance": [
+    {
+      "feature": "dep_name_heuristic_coupled",
+      "mean_abs_shap": 0.16465
+    },
+    {
+      "feature": "hist_total_prior_runs",
+      "mean_abs_shap": 0.11536
+    },
+    {
+      "feature": "diff_lines_added",
+      "mean_abs_shap": 0.06539
+    },
+    {
+      "feature": "diff_total_churn",
+      "mean_abs_shap": 0.04526
+    },
+    {
+      "feature": "hist_prior_failures",
+      "mean_abs_shap": 0.03249
+    },
+    {
+      "feature": "hist_recent_10_failure_rate",
+      "mean_abs_shap": 0.02664
+    },
+    {
+      "feature": "diff_num_files_changed",
+      "mean_abs_shap": 0.02581
+    },
+    {
+      "feature": "diff_lines_deleted",
+      "mean_abs_shap": 0.00639
+    },
+    {
+      "feature": "diff_num_src_files",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "diff_num_test_files",
+      "mean_abs_shap": 0.0
+    }
+  ],
+  "sample_developer_cards": [
+    {
+      "test_id": "tests/test_auth.py::test_login",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Recent Regression History: Test failed in 10% of its last 10 executions.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_auth.py::test_jwt",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_auth.py::test_logout",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_db.py::test_pool",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_db.py::test_migration",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_db.py::test_session",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Recent Regression History: Test failed in 10% of its last 10 executions.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_payment.py::test_stripe",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0825,
+      "primary_reasons": [
+        "Module Coupling: Test module name pattern directly corresponds to changed source file.",
+        "Recent Regression History: Test failed in 10% of its last 10 executions.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "dep_name_heuristic_coupled (value: 1.0, SHAP: +0.351)",
+        "diff_lines_added (value: 42.0, SHAP: +0.039)",
+        "diff_total_churn (value: 55.0, SHAP: +0.034)"
+      ]
+    },
+    {
+      "test_id": "tests/test_payment.py::test_fees",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0825,
+      "primary_reasons": [
+        "Module Coupling: Test module name pattern directly corresponds to changed source file.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "dep_name_heuristic_coupled (value: 1.0, SHAP: +0.351)",
+        "diff_lines_added (value: 42.0, SHAP: +0.039)",
+        "diff_total_churn (value: 55.0, SHAP: +0.034)"
+      ]
+    },
+    {
+      "test_id": "tests/test_payment.py::test_refund",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0825,
+      "primary_reasons": [
+        "Module Coupling: Test module name pattern directly corresponds to changed source file.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "dep_name_heuristic_coupled (value: 1.0, SHAP: +0.351)",
+        "diff_lines_added (value: 42.0, SHAP: +0.039)",
+        "diff_total_churn (value: 55.0, SHAP: +0.034)"
+      ]
+    },
+    {
+      "test_id": "tests/test_router.py::test_routes",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Recent Regression History: Test failed in 10% of its last 10 executions.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_router.py::test_cors",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Recent Regression History: Test failed in 10% of its last 10 executions.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_router.py::test_middleware",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_utils.py::test_format",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Recent Regression History: Test failed in 10% of its last 10 executions.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_utils.py::test_crypto",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Recent Regression History: Test failed in 10% of its last 10 executions.",
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    },
+    {
+      "test_id": "tests/test_utils.py::test_parser",
+      "status": "SELECTED",
+      "risk_level": "LOW",
+      "confidence": 0.0659,
+      "primary_reasons": [
+        "Bugfix Patch Context: Commit message indicates a bug fix or regression patch."
+      ],
+      "top_shap_drivers": [
+        "diff_total_churn (value: 55.0, SHAP: +0.093)",
+        "diff_lines_added (value: 42.0, SHAP: +0.092)",
+        "diff_num_files_changed (value: 1.0, SHAP: +0.014)"
+      ]
+    }
+  ]
+}

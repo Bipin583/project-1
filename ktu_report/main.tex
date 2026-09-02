@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[left=1.25in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{cite}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \centering
+    \vspace*{0.5cm}
+    {\Large \textbf{CONFTEST: CONFIDENCE-CALIBRATED SELECTIVE REGRESSION TEST SELECTION VIA UNCERTAINTY-AWARE DEEP ENSEMBLES}\par}
+    \vspace{1.5cm}
+    {\large \textit{A PROJECT REPORT}\par}
+    \vspace{0.5cm}
+    {\large \textit{Submitted by}\par}
+    \vspace{0.5cm}
+    {\large \textbf{BIPIN B} (Register No: KTU-CSE-2026)\par}
+    \vspace{1.5cm}
+    {\large \textit{In partial fulfillment for the award of the degree of}\par}
+    \vspace{0.5cm}
+    {\large \textbf{BACHELOR OF TECHNOLOGY}\par}
+    {\large \textit{in}\par}
+    {\large \textbf{COMPUTER SCIENCE AND ENGINEERING}\par}
+    \vspace{1.5cm}
+    \includegraphics[width=3.5cm]{ktu_logo.png}\par
+    \vspace{1.0cm}
+    {\large \textbf{DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}\par}
+    {\large \textbf{APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY}\par}
+    {\large \textbf{APRIL 2026}\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\input{certificate}
+\input{declaration}
+\input{acknowledgement}
+\input{abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\clearpage
+\pagenumbering{arabic}
+
+\input{chapters/chapter1_intro}
+\input{chapters/chapter2_lit_review}
+\input{chapters/chapter3_system_design}
+\input{chapters/chapter4_implementation}
+\input{chapters/chapter5_results}
+\input{chapters/chapter6_economics}
+\input{chapters/chapter7_conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

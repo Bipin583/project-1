@@ -1,35 +1,48 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  api:
+  conftest-api:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: conftest-api
+    restart: unless-stopped
     ports:
       - "8000:8000"
     environment:
       - CONFTEST_ENV=production
+      - CONFTEST_LOG_LEVEL=INFO
+      - CONFTEST_DB_URL=sqlite:////app/data/conftest.db
       - CONFTEST_API_HOST=0.0.0.0
       - CONFTEST_API_PORT=8000
-      - CONFTEST_DATABASE_URL=sqlite:///./data/conftest.db
     volumes:
-      - ./data:/app/data
-      - ./models:/app/models
-    command: uvicorn conftest.api.main:app --host 0.0.0.0 --port 8000
+      - conftest-data:/app/data
+      - ./reports:/app/reports
+    command: ["uvicorn", "conftest.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
 
-  dashboard:
+  conftest-dashboard:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: conftest-dashboard
+    restart: unless-stopped
     ports:
       - "8501:8501"
     environment:
-      - CONFTEST_ENV=production
+      - CONFTEST_API_URL=http://conftest-api:8000
+      - CONFTEST_DB_URL=sqlite:////app/data/conftest.db
     volumes:
-      - ./data:/app/data
-      - ./models:/app/models
+      - conftest-data:/app/data
+      - ./reports:/app/reports
     depends_on:
-      - api
-    command: streamlit run dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+      - conftest-api
+    command: ["streamlit", "run", "dashboard/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+volumes:
+  conftest-data:
+    name: conftest-shared-data

@@ -1,0 +1,25 @@
+{
+  "optimized_policy": {
+    "tau_abstain": 0.03,
+    "tau_conf": 0.1,
+    "budget_ratio": 0.25
+  },
+  "validation_evaluation": {
+    "tau_abstain": 0.03,
+    "tau_conf": 0.1,
+    "test_reduction_trr_pct": 18.75,
+    "failure_recall_pct": 100.0,
+    "abstention_rate_pct": 75.0,
+    "escaped_commits": 0,
+    "missed_failures": 0
+  },
+  "unseen_test_evaluation": {
+    "tau_abstain": 0.03,
+    "tau_conf": 0.1,
+    "test_reduction_trr_pct": 15.0,
+    "failure_recall_pct": 100.0,
+    "abstention_rate_pct": 80.0,
+    "escaped_commits": 0,
+    "missed_failures": 0
+  }
+}

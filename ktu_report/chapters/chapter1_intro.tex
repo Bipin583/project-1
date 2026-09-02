@@ -1,0 +1,25 @@
+\chapter{Introduction}
+
+\section{Overview}
+Continuous Integration and Continuous Deployment (CI/CD) workflows allow software teams to integrate code commits multiple times a day. Automated testing is the bedrock of CI/CD, providing rapid regression feedback. However, modern test suites can take hours to execute, causing developer productivity bottlenecks and substantial cloud compute expenditures.
+
+\section{Problem Statement}
+Existing dynamic and static Regression Test Selection (RTS) tools either incur high runtime collection overheads (e.g. bytecode instrumentation) or produce overly conservative selections. Machine learning-based RTS approaches predict failure likelihoods from commit features, but suffer from critical flaws:
+\begin{enumerate}
+    \item \textbf{Uncalibrated Probabilities:} Tree-based and deep neural models exhibit severe overconfidence on imbalanced test datasets.
+    \item \textbf{Epistemic Blindness:} Models cannot identify when an unseen commit represents a novel refactoring pattern outside the training distribution.
+    \item \textbf{High Regression Escape Penalties:} Skipping a single failing test results in production outages costing thousands of dollars in triage and patch deployment.
+\end{enumerate}
+
+\section{Project Objectives}
+The key objectives of ConfTest are:
+\begin{enumerate}
+    \item To engineer a robust 32-dimensional feature extraction pipeline combining AST parsing, static dependency call-graphs, code churn metrics, and historical telemetry.
+    \item To quantify model epistemic uncertainty ($\sigma$) using a 5-seed deep ensemble.
+    \item To eliminate probability miscalibration using post-hoc Temperature Scaling.
+    \item To formulate an economic selective prediction policy with zero-escape full suite fallback.
+    \item To build a production-grade microservices deployment with FastAPI, Streamlit, and GitHub webhooks.
+\end{enumerate}
+
+\section{Organization of the Report}
+The remainder of this report is organized as follows: Chapter 2 reviews literature and RTS baselines; Chapter 3 describes system design and mathematical modeling; Chapter 4 presents implementation specifics; Chapter 5 presents empirical benchmark findings; Chapter 6 analyzes economic cost-benefit models; and Chapter 7 concludes the report.

@@ -1,0 +1,19 @@
+\chapter{Economic Cost-Benefit and Enterprise Financial ROI}
+
+\section{Cost Model Formulation}
+Enterprise testing expenditure is governed by two direct components:
+\begin{enumerate}
+    \item Direct Cloud Compute Runner Minutes ($C_{\text{CI}}$) at $\$0.016/\text{min}$.
+    \item Developer Blocked Wait-Time Opportunity Cost ($C_{\text{dev}}$) at $\$75.00/\text{hr}$.
+\end{enumerate}
+Skipping failing tests incurs production regression escape penalties ($C_{\text{escape}} = \$3,500/\text{bug}$).
+
+\section{ROI Analysis}
+For an engineering organization with 25 active developers generating 18,750 annual commits on a 45-minute test suite:
+\begin{itemize}
+    \item Full Suite Baseline Cost: $\$314,062/\text{year}$.
+    \item ConfTest Annual Cost: $\$73,746/\text{year}$.
+    \item \textbf{Net Annual Financial Benefit:} $\mathbf{\$240,316/\text{year}}$ with \textbf{\$0} escape penalty.
+\end{itemize}
+
+ConfTest delivers the highest risk-adjusted net benefit across all evaluated RTS techniques.

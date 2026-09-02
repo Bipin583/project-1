@@ -1,0 +1,18 @@
+\chapter{Implementation Details}
+
+\section{Technology Stack}
+ConfTest is implemented using:
+\begin{itemize}
+    \item \textbf{Core Language:} Python 3.11 with strict static type annotations.
+    \item \textbf{Machine Learning \& Stats:} LightGBM, SHAP, Scikit-Learn, SciPy.
+    \item \textbf{Database \& ORM:} SQLite3 with SQLAlchemy 2.0 and Pydantic V2 schemas.
+    \item \textbf{Backend REST API:} FastAPI with Uvicorn ASGI server.
+    \item \textbf{Webhooks \& CI:} GitHub App webhooks with HMAC SHA-256 validation.
+    \item \textbf{Visual Dashboard:} Streamlit multi-page interactive analytics portal.
+\end{itemize}
+
+\section{Pytest Test Runner \& Discovery Engine}
+To ensure secure and non-invasive execution, the test executor utilizes \texttt{pytest --collect-only -q} to introspect test node IDs via standard regex patterns (\texttt{\textasciicircum[a-zA-Z0-9\_/.-]+::[a-zA-Z0-9\_]+(\textbackslash[[a-zA-Z0-9\_,-]+\textbackslash])?\$}), rejecting shell injection vulnerabilities.
+
+\section{Database Schema}
+The SQLite database schema encapsulates 9 relational entities: \texttt{repositories}, \texttt{commits}, \texttt{test\_files}, \texttt{test\_cases}, \texttt{feature\_vectors}, \texttt{model\_checkpoints}, \texttt{predictions}, \texttt{selection\_decisions}, and \texttt{execution\_outcomes}.

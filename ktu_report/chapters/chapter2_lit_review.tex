@@ -1,0 +1,13 @@
+\chapter{Literature Review}
+
+\section{Introduction}
+Regression Test Selection (RTS) has been investigated extensively over three decades. Techniques broadly fall into static, dynamic, and learning-based categories.
+
+\section{Static vs. Dynamic RTS}
+Rothermel and Harrold defined the formal foundation for safe regression test selection using Control Flow Graph (CFG) analysis. Dynamic techniques track runtime line-level execution traces (e.g., via bytecode instrumentation or coverage tools like \texttt{coverage.py}). While theoretically safe, dynamic RTS incurs substantial instrumentation overheads (often $20\%\text{--}50\%$ runtime penalty) and fails when non-code files or configuration scripts are modified.
+
+\section{Machine Learning in Test Selection}
+Recent work has applied decision trees, Random Forests, and neural networks to predict regression test outcomes directly from commit metadata. However, prior work universally treats classification outputs as rank scores rather than well-calibrated posterior probabilities.
+
+\section{Uncertainty Estimation and Selective Prediction}
+Lakshminarayanan et al. established Deep Ensembles as a scalable method for capturing epistemic model uncertainty. Geifman and El-Yaniv formulated selective classification, enabling neural networks to abstain from predictions under high uncertainty. ConfTest adapts these principles to software regression testing.

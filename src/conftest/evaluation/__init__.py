@@ -1,1 +1,7 @@
-"""Empirical evaluation metrics: ECE, Brier score, ETR, TRR, Failure Recall, and statistics."""
+"""
+ConfTest Empirical Evaluation & Benchmarking Subsystem.
+"""
+
+from conftest.evaluation.benchmark import BaselineBenchmarkRunner
+
+__all__ = ["BaselineBenchmarkRunner"]

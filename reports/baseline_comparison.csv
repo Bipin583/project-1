@@ -1,0 +1,9 @@
+Strategy / Baseline,Test Reduction (TRR %),Time Reduction (ETR %),Failure Recall (FR %),Missed-Failure (MFR %),Abstention Rate (AR %),Escaped Commits
+1. Full Test Suite,0.0%,0.0%,100.0%,0.0%,0.0%,0
+2. Random-k Selection,75.0%,73.5%,20.0%,80.0%,0.0%,4
+3. Changed-File Selection,100.0%,98.0%,0.0%,100.0%,0.0%,4
+4. Static AST Call-Graph Selection,75.0%,73.5%,20.0%,80.0%,0.0%,4
+5. Historical Failure Frequency,75.0%,73.5%,20.0%,80.0%,0.0%,4
+6. Uncalibrated ML (LightGBM),75.0%,73.5%,20.0%,80.0%,0.0%,4
+7. Calibrated ML (No Abstention),75.0%,73.5%,20.0%,80.0%,0.0%,4
+8. ConfTest (Calibrated + Selective Abstention),60.0%,58.8%,40.0%,60.0%,20.0%,3

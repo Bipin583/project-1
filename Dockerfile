@@ -1,37 +1,44 @@
-# Multi-stage Dockerfile for ConfTest API and Dashboard
-FROM python:3.11-slim as base
+# syntax=docker/dockerfile:1
+FROM python:3.11-slim AS builder
 
-ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=1 \
-    CONFTEST_ENV=production
+WORKDIR /build
 
-WORKDIR /app
-
-# Install system utilities
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    curl \
+    libgomp1 \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Install python dependencies
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+COPY pyproject.toml requirements.txt ./
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-# Copy source code and configuration
-COPY pyproject.toml README.md .env.example ./
-COPY configs/ ./configs/
+# Final Runtime Image
+FROM python:3.11-slim AS runtime
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgomp1 \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy installed wheels/site-packages from builder
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
 COPY src/ ./src/
 COPY dashboard/ ./dashboard/
+COPY scripts/ ./scripts/
+COPY pyproject.toml ./
 
-# Install conftest package in editable mode
-RUN pip install -e .
+ENV PYTHONPATH=/app/src:/app
+ENV CONFTEST_DB_URL=sqlite:////app/data/conftest.db
+ENV PYTHONUNBUFFERED=1
 
-# Create data and models directory
-RUN mkdir -p data models
+RUN mkdir -p /app/data /app/reports /app/models
 
 EXPOSE 8000 8501
 
-# Default startup command launches FastAPI
 CMD ["uvicorn", "conftest.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

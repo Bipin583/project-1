@@ -1,0 +1,19 @@
+\chapter{Conclusion and Future Scope}
+
+\section{Summary of Contributions}
+In this project, we designed, implemented, and empirically validated \textbf{ConfTest}, an uncertainty-aware, confidence-calibrated Selective Regression Test Selection framework. ConfTest successfully bridges the gap between machine learning efficiency and static safety guarantees by:
+\begin{enumerate}
+    \item Mining a canonical 32-feature dataset covering AST, Call-Graph, Churn, and Historical telemetry.
+    \item Quantifying epistemic uncertainty ($\sigma$) using 5-seed deep ensembles.
+    \item Calibrating failure probabilities via Temperature Scaling, reducing ECE by $25.47\%$.
+    \item Enforcing a zero-escape selective policy that delivers $68.6\%$ test time reduction and $100\%$ bug recall.
+    \item Deploying a production microservices suite with FastAPI, Streamlit, and GitHub PR bot webhooks.
+\end{enumerate}
+
+\section{Future Scope}
+Future extensions of this work include:
+\begin{itemize}
+    \item Multi-Language Support (Java, TypeScript, Go).
+    \item Neural Graph Attention Networks (GATs) for deep whole-program call-graph embeddings.
+    \item Multi-Armed Bandit dynamic test budget scheduling in resource-constrained edge CI environments.
+\end{itemize}

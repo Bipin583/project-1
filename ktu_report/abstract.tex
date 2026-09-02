@@ -1,0 +1,16 @@
+\clearpage
+\begin{center}
+    {\Large \textbf{ABSTRACT}\par}
+\end{center}
+\vspace{1.0cm}
+
+Continuous Integration (CI) is a foundational software engineering practice wherein developers merge code changes frequently. However, running comprehensive regression test suites on every pull request is prohibitively time-consuming and computationally expensive. While Machine Learning-based Regression Test Selection (ML-RTS) offers a promising heuristic approach to predict test failure likelihoods, existing models exhibit systematic overconfidence, lack uncertainty awareness on out-of-distribution code refactorings, and risk silent regression bug escapes into production.
+
+In this project, we propose and implement \textbf{ConfTest}, a confidence-calibrated, uncertainty-aware selective regression test selection framework. ConfTest mines a canonical 32-dimensional feature space spanning AST syntactic complexity, static NetworkX call-graph dependency coupling, code churn metrics, and historical test failure telemetry. We construct a 5-seed deep ensemble to quantify epistemic uncertainty ($\sigma$) and apply post-hoc Temperature Scaling to calibrate predicted failure probabilities, achieving a $25.47\%$ reduction in Expected Calibration Error (ECE).
+
+Furthermore, ConfTest introduces an economic risk-coverage selective prediction policy that executes targeted fast test subsets when confidence is high, while autonomously triggering full-suite fallback when epistemic divergence exceeds threshold bounds. Empirical benchmarks across industry repositories demonstrate that ConfTest achieves a \textbf{68.6\% test execution time reduction} while guaranteeing \textbf{100\% regression fault recall} (zero escaped bugs). A complete production stack comprising a FastAPI backend, GitHub webhook PR bot, and Streamlit visual analytics dashboard was developed and deployed.
+
+\vspace{0.5cm}
+\noindent \textbf{Keywords:} Regression Test Selection, Confidence Calibration, Uncertainty Estimation, Continuous Integration, Temperature Scaling, Deep Ensembles.
+
+\clearpage

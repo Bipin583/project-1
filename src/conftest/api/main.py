@@ -2,7 +2,8 @@
 ConfTest FastAPI Main Application Entry Point.
 
 Provides RESTful endpoints for repository registration, AST analysis,
-test-selection prediction, calibrated confidence reporting, and CI/CD webhook processing.
+test-selection prediction, calibrated confidence reporting, model explainability,
+analytics, and CI/CD webhook processing.
 """
 
 from contextlib import asynccontextmanager
@@ -14,6 +15,12 @@ from conftest.config import settings
 from conftest.logging_config import get_logger
 from conftest.db.init_db import init_db
 from conftest.api.routes.health import router as health_router
+from conftest.api.routes.selection import router as selection_router
+from conftest.api.routes.explain import router as explain_router
+from conftest.api.routes.calibration import router as calibration_router
+from conftest.api.routes.repositories import router as repositories_router
+from conftest.api.routes.analytics import router as analytics_router
+from conftest.api.routes.github_webhook import router as github_router
 
 logger = get_logger(__name__)
 
@@ -54,6 +61,12 @@ app.add_middleware(
 # Register routes
 app.include_router(health_router, prefix="", tags=["System & Diagnostics"])
 app.include_router(health_router, prefix="/api/v1", tags=["System & Diagnostics"])
+app.include_router(selection_router, prefix="/api/v1", tags=["Test Selection"])
+app.include_router(explain_router, prefix="/api/v1", tags=["Model Explainability"])
+app.include_router(calibration_router, prefix="/api/v1", tags=["Confidence Calibration"])
+app.include_router(repositories_router, prefix="/api/v1", tags=["Repositories"])
+app.include_router(analytics_router, prefix="/api/v1", tags=["Analytics & Telemetry"])
+app.include_router(github_router, prefix="/api/v1", tags=["GitHub Integration"])
 
 
 @app.get(
@@ -72,6 +85,13 @@ def root():
             "description": "Confidence-Calibrated Regression Test Selection API",
             "docs": "/docs",
             "health": "/health",
+            "endpoints": {
+                "select": "/api/v1/select",
+                "explain": "/api/v1/explain",
+                "calibration": "/api/v1/calibration",
+                "repositories": "/api/v1/repositories",
+                "analytics": "/api/v1/analytics",
+            },
         }
     )
 

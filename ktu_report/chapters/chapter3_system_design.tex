@@ -1,0 +1,35 @@
+\chapter{System Design and Mathematical Formulation}
+
+\section{System Architecture}
+ConfTest is structured into four sequential stages:
+\begin{enumerate}
+    \item \textbf{Data Ingestion \& Feature Extraction:} Mines git diffs, parses Abstract Syntax Trees, traverses NetworkX call-graphs, and queries SQLite telemetry to form a 32-dimensional float32 vector $\mathbf{x}_{ij}$ for commit-test pair $(c_i, t_j)$.
+    \item \textbf{Deep Ensemble Inference:} Passes $\mathbf{x}_{ij}$ through $M=5$ diverse LightGBM models to compute mean probability $\bar{p}$ and epistemic variance $\sigma^2$.
+    \item \textbf{Post-Hoc Temperature Calibration:} Passes logits through scalar temperature $T > 0$ to minimize Expected Calibration Error (ECE).
+    \item \textbf{Selective Prediction Decision Policy:} Determines whether to execute a fast selected subset (Fast Mode) or abstain and execute the full test suite (Safe Fallback).
+\end{enumerate}
+
+\section{Mathematical Formulation}
+\subsection{Epistemic Uncertainty Estimation}
+\begin{equation}
+    \bar{p}(c_i, t_j) = \frac{1}{M}\sum_{m=1}^M f_{\theta_m}(\mathbf{x}_{ij})
+\end{equation}
+\begin{equation}
+    \sigma(c_i, t_j) = \sqrt{\frac{1}{M}\sum_{m=1}^M \left(f_{\theta_m}(\mathbf{x}_{ij}) - \bar{p}(c_i, t_j)\right)^2}
+\end{equation}
+
+\subsection{Temperature Scaling Optimization}
+\begin{equation}
+    T^* = \arg\min_{T > 0} -\frac{1}{N_{\text{val}}}\sum_{k=1}^{N_{\text{val}}} \left[ y_k \log \hat{p}_k(T) + (1-y_k)\log(1 - \hat{p}_k(T)) \right]
+\end{equation}
+\begin{equation}
+    \hat{p}_k(T) = \frac{1}{1 + \exp(-z_k / T)}
+\end{equation}
+
+\subsection{Selective Prediction Rule}
+\begin{equation}
+    g(c_i) = \begin{cases}
+        1 \quad (\text{Select Subset}) & \text{if } \sigma(c_i) \le \tau_{\text{abstain}} \land \max_j \hat{p}(c_i, t_j) \ge \tau_{\text{conf}} \land \text{Churn}(c_i) \le \tau_{\text{churn}} \\
+        0 \quad (\text{Fallback to All}) & \text{otherwise}
+    \end{cases}
+\end{equation}

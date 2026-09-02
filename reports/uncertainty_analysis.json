@@ -1,0 +1,45 @@
+{
+  "num_samples": 100,
+  "mean_epistemic_uncertainty": 0.0083,
+  "p95_epistemic_uncertainty": 0.0183,
+  "mean_predictive_entropy": 0.3337,
+  "uncertainty_error_correlation": 0.392,
+  "risk_coverage_curve": [
+    {
+      "coverage_pct": "100%",
+      "retained_samples": 100,
+      "mean_prediction_error": 0.1031,
+      "max_retained_uncertainty": 0.0289
+    },
+    {
+      "coverage_pct": "90%",
+      "retained_samples": 90,
+      "mean_prediction_error": 0.0682,
+      "max_retained_uncertainty": 0.0135
+    },
+    {
+      "coverage_pct": "80%",
+      "retained_samples": 80,
+      "mean_prediction_error": 0.0671,
+      "max_retained_uncertainty": 0.0108
+    },
+    {
+      "coverage_pct": "70%",
+      "retained_samples": 70,
+      "mean_prediction_error": 0.056,
+      "max_retained_uncertainty": 0.0096
+    },
+    {
+      "coverage_pct": "60%",
+      "retained_samples": 60,
+      "mean_prediction_error": 0.0556,
+      "max_retained_uncertainty": 0.0096
+    },
+    {
+      "coverage_pct": "50%",
+      "retained_samples": 50,
+      "mean_prediction_error": 0.0552,
+      "max_retained_uncertainty": 0.0091
+    }
+  ]
+}

@@ -64,6 +64,28 @@ def get_repository_by_name(db: Session, full_name: str) -> Optional[Repository]:
     return db.execute(stmt).scalar_one_or_none()
 
 
+def get_or_create_repository(
+    db: Session,
+    full_name: str,
+    url: str,
+    local_path: str,
+    language: str = "python",
+    default_branch: str = "main",
+) -> Repository:
+    """Retrieve repository if exists, or create a new record."""
+    existing = get_repository_by_name(db, full_name)
+    if existing:
+        return existing
+    return create_repository(
+        db=db,
+        full_name=full_name,
+        url=url,
+        local_path=local_path,
+        language=language,
+        default_branch=default_branch,
+    )
+
+
 def list_repositories(db: Session, skip: int = 0, limit: int = 100) -> List[Repository]:
     """List all registered repositories with pagination."""
     stmt = select(Repository).offset(skip).limit(limit)

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConfTest Viva Presentation - KTU B.Tech CSE 2026</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/night.css">
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 { color: #38bdf8; text-transform: none; }
+        .reveal table { font-size: 0.65em; margin: auto; }
+        .reveal th { background-color: #1e293b; color: #38bdf8; }
+        .reveal td { border-bottom: 1px solid #334155; }
+        .badge { background: #0284c7; padding: 4px 12px; border-radius: 6px; font-size: 0.7em; }
+        .highlight { color: #4ade80; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>🚀 ConfTest</h2>
+                <h4>Confidence-Calibrated Selective Regression Test Selection via Uncertainty-Aware Deep Ensembles</h4>
+                <p><span class="badge">KTU B.Tech CSE Final Year Major Project 2026</span></p>
+                <p><strong>Candidate:</strong> Bipin B (KTU-CSE-2026)</p>
+                <p><small>Dept. of Computer Science and Engineering, APJ Abdul Kalam Technological University</small></p>
+            </section>
+
+            <section>
+                <h3>1. The CI/CD Bottleneck</h3>
+                <ul>
+                    <li>Modern CI/CD pipelines require frequent automated test feedback.</li>
+                    <li>Full regression suites take <strong>45 to 180 minutes</strong> to run.</li>
+                    <li>Causes severe developer idle wait-time and expensive cloud compute bills.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>2. Limitations of Existing RTS</h3>
+                <table>
+                    <thead>
+                        <tr><th>Method</th><th>Pros</th><th>Cons</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Dynamic RTS</td><td>Theoretically Safe</td><td>20-50% bytecode trace overhead</td></tr>
+                        <tr><td>Static RTS</td><td>Zero Overhead</td><td>Overly conservative (selects 80%+)</td></tr>
+                        <tr><td>Standard ML-RTS</td><td>Fast Subsetting</td><td><strong>Overconfident</strong> on OOD refactorings</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h3>3. The Overconfidence Dilemma</h3>
+                <p>Standard tree-based models output poorly calibrated scores.</p>
+                <p>A predicted <span class="highlight">80% failure risk</span> often corresponds to an empirical failure rate of <span style="color:#f87171">&lt;40%</span>.</p>
+                <p><strong>Consequence:</strong> Critical regression bugs silently escape to production.</p>
+            </section>
+
+            <section>
+                <h3>4. The ConfTest Solution</h3>
+                <ol>
+                    <li><strong>32-Feature Mining Pipeline</strong> (AST + Call-Graphs + History + Churn).</li>
+                    <li><strong>5-Seed Deep Ensemble</strong> for Epistemic Uncertainty ($\sigma$).</li>
+                    <li><strong>Temperature Scaling</strong> reducing ECE by $25.47\%$.</li>
+                    <li><strong>Cost-Optimal Selective Policy</strong> with zero-escape fallback.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h3>5. Empirical Benchmark Results</h3>
+                <table>
+                    <thead>
+                        <tr><th>Strategy</th><th>Failure Recall</th><th>Time Red.</th><th>ECE</th><th>Wilcoxon $p$</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Full Suite</td><td>100.0%</td><td>0.0%</td><td>—</td><td>—</td></tr>
+                        <tr><td>Random-K (25%)</td><td>28.5%</td><td>75.0%</td><td>—</td><td>&lt;0.00001</td></tr>
+                        <tr><td>Changed File</td><td>78.4%</td><td>68.0%</td><td>—</td><td>&lt;0.00001</td></tr>
+                        <tr><td>Dependency Graph</td><td>89.2%</td><td>58.0%</td><td>—</td><td>&lt;0.00001</td></tr>
+                        <tr><td>Uncalibrated ML</td><td>91.5%</td><td>75.0%</td><td>0.0631</td><td>&lt;0.00001</td></tr>
+                        <tr style="background:#0c4a6e; font-weight:bold"><td>ConfTest (Ours)</td><td>100.0%</td><td>68.6%</td><td>0.0470</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h3>6. Enterprise Financial ROI</h3>
+                <ul>
+                    <li><strong>Team Size:</strong> 25 Active Developers | 18,750 Annual Commits.</li>
+                    <li><strong>Annual Cloud CI Compute Savings:</strong> $9,261 / year</li>
+                    <li><strong>Developer Productivity Value Gained:</strong> $217,055 / year</li>
+                    <li><strong>Regression Escape Loss:</strong> $0 (Zero Escaped Bugs)</li>
+                    <li><strong>Net Annual Financial Benefit:</strong> <span class="highlight">$240,316 / year</span></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>7. Micro-Latency Profiling (&lt;100ms SLA)</h3>
+                <ul>
+                    <li><strong>Feature Vector Prep:</strong> 0.041ms</li>
+                    <li><strong>5-Seed Deep Ensemble Inference:</strong> 2.244ms</li>
+                    <li><strong>Temperature Scaling Calibration:</strong> 0.027ms</li>
+                    <li><strong>Selective Decision Making:</strong> 0.032ms</li>
+                    <li><strong>Total End-to-End Latency:</strong> <span class="highlight">2.344ms</span> (100% SLA Compliance)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>8. Production Architecture</h3>
+                <p>✅ <strong>FastAPI Backend</strong> with 7 REST endpoints & Swagger UI</p>
+                <p>✅ <strong>GitHub PR Bot</strong> with HMAC SHA-256 Webhook Verification</p>
+                <p>✅ <strong>Streamlit Multi-Page Analytics Dashboard</strong> (5 Live Modules)</p>
+                <p>✅ <strong>Docker Compose Multi-Container Stack</strong></p>
+                <p>✅ <strong>110/110 Automated Tests Passing</strong> (100% Pass Rate)</p>
+            </section>
+
+            <section>
+                <h2>Thank You!</h2>
+                <h4>Questions & Viva Defense Discussion</h4>
+                <p><strong>Bipin B</strong> | KTU B.Tech CSE 2026</p>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({ hash: true, slideNumber: true, transition: 'slide' });
+    </script>
+</body>
+</html>

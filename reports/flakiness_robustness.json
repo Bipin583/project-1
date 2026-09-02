@@ -1,0 +1,109 @@
+{
+  "stress_test_grid": [
+    {
+      "noise_rate_pct": 0.0,
+      "standard_unweighted": {
+        "pr_auc": 0.2734,
+        "roc_auc": 0.8884,
+        "brier_score": 0.0508,
+        "failure_recall": 0.8
+      },
+      "conftest_robust": {
+        "pr_auc": 0.2734,
+        "roc_auc": 0.8884,
+        "brier_score": 0.0498,
+        "calibrated_ece": 0.047,
+        "failure_recall": 0.8,
+        "temperature": 0.6305
+      },
+      "robustness_advantage": {
+        "delta_recall": 0.0,
+        "delta_pr_auc": 0.0
+      }
+    },
+    {
+      "noise_rate_pct": 5.0,
+      "standard_unweighted": {
+        "pr_auc": 0.1716,
+        "roc_auc": 0.8316,
+        "brier_score": 0.0855,
+        "failure_recall": 0.6
+      },
+      "conftest_robust": {
+        "pr_auc": 0.141,
+        "roc_auc": 0.7958,
+        "brier_score": 0.0693,
+        "calibrated_ece": 0.0692,
+        "failure_recall": 0.8,
+        "temperature": 0.5642
+      },
+      "robustness_advantage": {
+        "delta_recall": 0.2,
+        "delta_pr_auc": -0.0306
+      }
+    },
+    {
+      "noise_rate_pct": 10.0,
+      "standard_unweighted": {
+        "pr_auc": 0.0846,
+        "roc_auc": 0.6147,
+        "brier_score": 0.1041,
+        "failure_recall": 0.4
+      },
+      "conftest_robust": {
+        "pr_auc": 0.1555,
+        "roc_auc": 0.7537,
+        "brier_score": 0.0459,
+        "calibrated_ece": 0.0133,
+        "failure_recall": 0.6,
+        "temperature": 0.3833
+      },
+      "robustness_advantage": {
+        "delta_recall": 0.2,
+        "delta_pr_auc": 0.0709
+      }
+    },
+    {
+      "noise_rate_pct": 20.0,
+      "standard_unweighted": {
+        "pr_auc": 0.0714,
+        "roc_auc": 0.6063,
+        "brier_score": 0.158,
+        "failure_recall": 0.4
+      },
+      "conftest_robust": {
+        "pr_auc": 0.0656,
+        "roc_auc": 0.5516,
+        "brier_score": 0.0984,
+        "calibrated_ece": 0.1125,
+        "failure_recall": 0.2,
+        "temperature": 0.3458
+      },
+      "robustness_advantage": {
+        "delta_recall": -0.2,
+        "delta_pr_auc": -0.0058
+      }
+    },
+    {
+      "noise_rate_pct": 30.0,
+      "standard_unweighted": {
+        "pr_auc": 0.0642,
+        "roc_auc": 0.4779,
+        "brier_score": 0.141,
+        "failure_recall": 0.4
+      },
+      "conftest_robust": {
+        "pr_auc": 0.0757,
+        "roc_auc": 0.5853,
+        "brier_score": 0.0763,
+        "calibrated_ece": 0.0897,
+        "failure_recall": 0.4,
+        "temperature": 0.3879
+      },
+      "robustness_advantage": {
+        "delta_recall": 0.0,
+        "delta_pr_auc": 0.0115
+      }
+    }
+  ]
+}

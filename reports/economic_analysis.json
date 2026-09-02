@@ -1,0 +1,104 @@
+{
+  "enterprise_parameters": {
+    "num_developers": 25,
+    "total_annual_commits": 18750,
+    "full_suite_duration_minutes": 45.0,
+    "ci_runner_cost_per_minute_usd": 0.016,
+    "developer_hourly_rate_usd": 75.0,
+    "cost_per_escaped_bug_usd": 3500.0
+  },
+  "baseline_full_suite_annual": {
+    "total_annual_commits": 18750,
+    "total_ci_minutes": 843750.0,
+    "annual_ci_compute_cost_usd": 13500.0,
+    "annual_developer_wait_cost_usd": 316406.25,
+    "annual_escape_cost_usd": 14000.0,
+    "total_annual_cost_usd": 343906.25
+  },
+  "strategy_comparisons": [
+    {
+      "strategy_name": "Full Suite (Always Run All)",
+      "test_reduction_rate_pct": 0.0,
+      "failure_recall_rate_pct": 100.0,
+      "annual_ci_compute_cost_usd": 13500.0,
+      "annual_developer_wait_cost_usd": 316406.25,
+      "annual_escape_cost_usd": 0.0,
+      "strategy_total_cost_usd": 329906.25,
+      "annual_ci_compute_savings_usd": 0.0,
+      "annual_developer_time_savings_usd": 0.0,
+      "gross_annual_savings_usd": 0.0,
+      "net_annual_benefit_usd": 14000.0,
+      "breakeven_escaped_bugs_threshold": 0
+    },
+    {
+      "strategy_name": "Random-K (25% Budget)",
+      "test_reduction_rate_pct": 75.0,
+      "failure_recall_rate_pct": 28.0,
+      "annual_ci_compute_cost_usd": 3375.0,
+      "annual_developer_wait_cost_usd": 79101.56,
+      "annual_escape_cost_usd": 63000.0,
+      "strategy_total_cost_usd": 145476.56,
+      "annual_ci_compute_savings_usd": 10125.0,
+      "annual_developer_time_savings_usd": 237304.69,
+      "gross_annual_savings_usd": 247429.69,
+      "net_annual_benefit_usd": 198429.69,
+      "breakeven_escaped_bugs_threshold": 70
+    },
+    {
+      "strategy_name": "Changed File Heuristic",
+      "test_reduction_rate_pct": 68.0,
+      "failure_recall_rate_pct": 78.0,
+      "annual_ci_compute_cost_usd": 4320.0,
+      "annual_developer_wait_cost_usd": 101250.0,
+      "annual_escape_cost_usd": 21000.0,
+      "strategy_total_cost_usd": 126570.0,
+      "annual_ci_compute_savings_usd": 9180.0,
+      "annual_developer_time_savings_usd": 215156.25,
+      "gross_annual_savings_usd": 224336.25,
+      "net_annual_benefit_usd": 217336.25,
+      "breakeven_escaped_bugs_threshold": 64
+    },
+    {
+      "strategy_name": "Static Dependency Graph",
+      "test_reduction_rate_pct": 58.0,
+      "failure_recall_rate_pct": 89.0,
+      "annual_ci_compute_cost_usd": 5670.0,
+      "annual_developer_wait_cost_usd": 132890.63,
+      "annual_escape_cost_usd": 10500.0,
+      "strategy_total_cost_usd": 149060.63,
+      "annual_ci_compute_savings_usd": 7830.0,
+      "annual_developer_time_savings_usd": 183515.62,
+      "gross_annual_savings_usd": 191345.62,
+      "net_annual_benefit_usd": 194845.62,
+      "breakeven_escaped_bugs_threshold": 54
+    },
+    {
+      "strategy_name": "Uncalibrated ML Model",
+      "test_reduction_rate_pct": 75.0,
+      "failure_recall_rate_pct": 91.0,
+      "annual_ci_compute_cost_usd": 3375.0,
+      "annual_developer_wait_cost_usd": 79101.56,
+      "annual_escape_cost_usd": 7000.0,
+      "strategy_total_cost_usd": 89476.56,
+      "annual_ci_compute_savings_usd": 10125.0,
+      "annual_developer_time_savings_usd": 237304.69,
+      "gross_annual_savings_usd": 247429.69,
+      "net_annual_benefit_usd": 254429.69,
+      "breakeven_escaped_bugs_threshold": 70
+    },
+    {
+      "strategy_name": "ConfTest (Calibrated + Selective)",
+      "test_reduction_rate_pct": 68.6,
+      "failure_recall_rate_pct": 99.5,
+      "annual_ci_compute_cost_usd": 4239.0,
+      "annual_developer_wait_cost_usd": 99351.56,
+      "annual_escape_cost_usd": 0.0,
+      "strategy_total_cost_usd": 103590.56,
+      "annual_ci_compute_savings_usd": 9261.0,
+      "annual_developer_time_savings_usd": 217054.69,
+      "gross_annual_savings_usd": 226315.69,
+      "net_annual_benefit_usd": 240315.69,
+      "breakeven_escaped_bugs_threshold": 64
+    }
+  ]
+}

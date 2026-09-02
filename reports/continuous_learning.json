@@ -1,0 +1,326 @@
+{
+  "total_streaming_commits": 40,
+  "total_adaptations_performed": 1,
+  "timeline": [
+    {
+      "mean_commit_error": 0.3001,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 160,
+      "total_adaptations": 0,
+      "commit_sequence_id": 1
+    },
+    {
+      "mean_commit_error": 0.1946,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 170,
+      "total_adaptations": 0,
+      "commit_sequence_id": 2
+    },
+    {
+      "mean_commit_error": 0.278,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 180,
+      "total_adaptations": 0,
+      "commit_sequence_id": 3
+    },
+    {
+      "mean_commit_error": 0.2273,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 190,
+      "total_adaptations": 0,
+      "commit_sequence_id": 4
+    },
+    {
+      "mean_commit_error": 0.2566,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 200,
+      "total_adaptations": 0,
+      "commit_sequence_id": 5
+    },
+    {
+      "mean_commit_error": 0.2971,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 210,
+      "total_adaptations": 0,
+      "commit_sequence_id": 6
+    },
+    {
+      "mean_commit_error": 0.2439,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 220,
+      "total_adaptations": 0,
+      "commit_sequence_id": 7
+    },
+    {
+      "mean_commit_error": 0.2814,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 230,
+      "total_adaptations": 0,
+      "commit_sequence_id": 8
+    },
+    {
+      "mean_commit_error": 0.2379,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 240,
+      "total_adaptations": 0,
+      "commit_sequence_id": 9
+    },
+    {
+      "mean_commit_error": 0.2436,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 250,
+      "total_adaptations": 0,
+      "commit_sequence_id": 10
+    },
+    {
+      "mean_commit_error": 0.1344,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 260,
+      "total_adaptations": 0,
+      "commit_sequence_id": 11
+    },
+    {
+      "mean_commit_error": 0.1705,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 270,
+      "total_adaptations": 0,
+      "commit_sequence_id": 12
+    },
+    {
+      "mean_commit_error": 0.2976,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 280,
+      "total_adaptations": 0,
+      "commit_sequence_id": 13
+    },
+    {
+      "mean_commit_error": 0.1547,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 290,
+      "total_adaptations": 0,
+      "commit_sequence_id": 14
+    },
+    {
+      "mean_commit_error": 0.3419,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 300,
+      "total_adaptations": 0,
+      "commit_sequence_id": 15
+    },
+    {
+      "mean_commit_error": 0.2199,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 310,
+      "total_adaptations": 0,
+      "commit_sequence_id": 16
+    },
+    {
+      "mean_commit_error": 0.2053,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 320,
+      "total_adaptations": 0,
+      "commit_sequence_id": 17
+    },
+    {
+      "mean_commit_error": 0.2598,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 330,
+      "total_adaptations": 0,
+      "commit_sequence_id": 18
+    },
+    {
+      "mean_commit_error": 0.2165,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 340,
+      "total_adaptations": 0,
+      "commit_sequence_id": 19
+    },
+    {
+      "mean_commit_error": 0.479,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 350,
+      "total_adaptations": 0,
+      "commit_sequence_id": 20
+    },
+    {
+      "mean_commit_error": 0.465,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 360,
+      "total_adaptations": 0,
+      "commit_sequence_id": 21
+    },
+    {
+      "mean_commit_error": 0.5007,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 370,
+      "total_adaptations": 0,
+      "commit_sequence_id": 22
+    },
+    {
+      "mean_commit_error": 0.5071,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 380,
+      "total_adaptations": 0,
+      "commit_sequence_id": 23
+    },
+    {
+      "mean_commit_error": 0.5091,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 390,
+      "total_adaptations": 0,
+      "commit_sequence_id": 24
+    },
+    {
+      "mean_commit_error": 0.4493,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 400,
+      "total_adaptations": 0,
+      "commit_sequence_id": 25
+    },
+    {
+      "mean_commit_error": 0.4255,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 410,
+      "total_adaptations": 0,
+      "commit_sequence_id": 26
+    },
+    {
+      "mean_commit_error": 0.5059,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 420,
+      "total_adaptations": 0,
+      "commit_sequence_id": 27
+    },
+    {
+      "mean_commit_error": 0.4264,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 430,
+      "total_adaptations": 0,
+      "commit_sequence_id": 28
+    },
+    {
+      "mean_commit_error": 0.4902,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 440,
+      "total_adaptations": 0,
+      "commit_sequence_id": 29
+    },
+    {
+      "mean_commit_error": 0.5113,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 450,
+      "total_adaptations": 0,
+      "commit_sequence_id": 30
+    },
+    {
+      "mean_commit_error": 0.475,
+      "drift_detected": true,
+      "model_adapted": true,
+      "buffer_size": 460,
+      "total_adaptations": 1,
+      "commit_sequence_id": 31
+    },
+    {
+      "mean_commit_error": 0.4623,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 470,
+      "total_adaptations": 1,
+      "commit_sequence_id": 32
+    },
+    {
+      "mean_commit_error": 0.4883,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 480,
+      "total_adaptations": 1,
+      "commit_sequence_id": 33
+    },
+    {
+      "mean_commit_error": 0.5074,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 490,
+      "total_adaptations": 1,
+      "commit_sequence_id": 34
+    },
+    {
+      "mean_commit_error": 0.4501,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 500,
+      "total_adaptations": 1,
+      "commit_sequence_id": 35
+    },
+    {
+      "mean_commit_error": 0.4867,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 500,
+      "total_adaptations": 1,
+      "commit_sequence_id": 36
+    },
+    {
+      "mean_commit_error": 0.464,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 500,
+      "total_adaptations": 1,
+      "commit_sequence_id": 37
+    },
+    {
+      "mean_commit_error": 0.5204,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 500,
+      "total_adaptations": 1,
+      "commit_sequence_id": 38
+    },
+    {
+      "mean_commit_error": 0.4394,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 500,
+      "total_adaptations": 1,
+      "commit_sequence_id": 39
+    },
+    {
+      "mean_commit_error": 0.5364,
+      "drift_detected": false,
+      "model_adapted": false,
+      "buffer_size": 500,
+      "total_adaptations": 1,
+      "commit_sequence_id": 40
+    }
+  ]
+}

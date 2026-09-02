@@ -1,0 +1,51 @@
+{
+  "per_repository": {
+    "psf/requests": {
+      "train_samples": 807,
+      "target_samples": 350,
+      "target_failure_rate": 0.06,
+      "zero_shot_pr_auc": 0.9181,
+      "zero_shot_roc_auc": 0.9935,
+      "zero_shot_brier_score": 0.0156,
+      "zero_shot_calibrated_ece": 0.0163,
+      "zero_shot_recall_at_25budget": 1.0
+    },
+    "pallets/flask": {
+      "train_samples": 850,
+      "target_samples": 300,
+      "target_failure_rate": 0.05,
+      "zero_shot_pr_auc": 0.9758,
+      "zero_shot_roc_auc": 0.9986,
+      "zero_shot_brier_score": 0.0097,
+      "zero_shot_calibrated_ece": 0.0216,
+      "zero_shot_recall_at_25budget": 1.0
+    },
+    "tiangolo/fastapi": {
+      "train_samples": 765,
+      "target_samples": 400,
+      "target_failure_rate": 0.07,
+      "zero_shot_pr_auc": 0.857,
+      "zero_shot_roc_auc": 0.9878,
+      "zero_shot_brier_score": 0.0222,
+      "zero_shot_calibrated_ece": 0.0172,
+      "zero_shot_recall_at_25budget": 1.0
+    },
+    "pallets/click": {
+      "train_samples": 892,
+      "target_samples": 250,
+      "target_failure_rate": 0.04,
+      "zero_shot_pr_auc": 0.673,
+      "zero_shot_roc_auc": 0.9867,
+      "zero_shot_brier_score": 0.0181,
+      "zero_shot_calibrated_ece": 0.0199,
+      "zero_shot_recall_at_25budget": 1.0
+    }
+  },
+  "macro_average": {
+    "mean_pr_auc": 0.856,
+    "mean_roc_auc": 0.9917,
+    "mean_recall_at_25budget": 1.0,
+    "mean_calibrated_ece": 0.0188,
+    "total_repositories_evaluated": 4
+  }
+}
